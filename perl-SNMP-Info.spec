@@ -1,17 +1,11 @@
+#
+%bcond_without	tests	# don't perform "make test"
+#
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	SNMP
 %define	pnam	Info
-Summary:	SNMP::Info Perl module
-Summary(cs):	Modul SNMP::Info pro Perl
-Summary(da):	Perlmodul SNMP::Info
-Summary(de):	SNMP::Info Perl Modul
-Summary(es):	Módulo de Perl SNMP::Info
-Summary(fr):	Module Perl SNMP::Info
-Summary(it):	Modulo di Perl SNMP::Info
-Summary(ja):	SNMP::Info Perl ¥â¥¸¥å¡¼¥ë
-Summary(ko):	SNMP::Info ÆÞ ¸ðÁÙ
-Summary(no):	Perlmodul SNMP::Info
-Summary(pl):	Modu³ Perla SNMP::Info
+Summary:	SNMP::Info - Perl interface to network devices and MIBs through SNMP
+Summary(pl):	SNMP::Info - perlowy interfejs do urz±dzeñ sieciowych i MIB-ów poprzez SNMP
 Summary(pt):	Módulo de Perl SNMP::Info
 Summary(pt_BR):	Módulo Perl SNMP::Info
 Summary(ru):	íÏÄÕÌØ ÄÌÑ Perl SNMP::Info
@@ -21,39 +15,58 @@ Summary(zh_CN):	SNMP::Info Perl Ä£¿é
 Name:		perl-SNMP-Info
 Version:	0.7
 Release:	1
-License:	GPL
+License:	BSD
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	e9a139b420d270132b43c7f8470edc17
-BuildRequires:	rpm-perlprov
-BuildRequires:	perl-devel >= 5.6
+URL:		http://snmp-info.sourceforge.net/
+%if %{with tests}
+BuildRequires:	perl(Math::BigInt)
+BuildRequires:	perl-SNMP >= 4
+%endif
+BuildRequires:	perl-devel >= 5.8.0
+BuildRequires:	rpm-perlprov >= 4.1-13
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-SNMP::Info - interface to network devices and MIBs through SNMP.
+SNMP::Info gives an object oriented interface to information obtained
+through SNMP. This module is geared towards network devices.
+Subclasses exist for a number of network devices and common MIBs. The
+idea behind this module is to give a common interface to data from
+network devices, leaving the device-specific hacks behind the scenes
+in subclasses.
 
 %description -l pl
-SNMP::Info - interfejs do urz±dzeñ sieciowych i MIBów przez SNMP.
+SNMP::Info udostêpnia zorientowany obiektowo interfejs do informacji
+uzyskiwanych poprzez SNMP. Modu³ jest dostosowany do urz±dzeñ
+sieciowych. Istniej± podklasy dla wielu urz±dzeñ sieciowych i
+popularnych MIB-ów. Ide± tego modu³u jest dostarczenie wspólnego
+interfejsu do danych z urz±dzeñ sieciowych pozostawiaj±c specyficzne
+dla konkretnych urz±dzeñ sztuczki ukryte w podklasach.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-%{__perl} Makefile.PL
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor
 %{__make}
+
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog
-%{perl_sitelib}/SNMP/Info.pm
-%{perl_sitelib}/SNMP/Info
+%doc COPYRIGHT ChangeLog DeviceMatrix.txt
+%{perl_vendorlib}/SNMP/Info.pm
+%{perl_vendorlib}/SNMP/Info
 %{_mandir}/man3/*
