@@ -19,7 +19,7 @@ URL:		http://snmp-info.sourceforge.net/
 BuildRequires:	perl(Math::BigInt)
 BuildRequires:	perl-SNMP >= 4
 %endif
-BuildRequires:	perl-devel >= 5.8.0
+BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
