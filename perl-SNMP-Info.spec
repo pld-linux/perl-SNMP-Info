@@ -3,8 +3,8 @@
 %bcond_without	tests	# do not perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
-%define	pdir	SNMP
-%define	pnam	Info
+%define		pdir	SNMP
+%define		pnam	Info
 Summary:	SNMP::Info - Perl interface to network devices and MIBs through SNMP
 Summary(pl):	SNMP::Info - interfejs perlowy do urz±dzeñ sieciowych i MIB-ów poprzez SNMP
 Name:		perl-SNMP-Info
