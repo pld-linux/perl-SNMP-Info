@@ -5,7 +5,7 @@
 %define	pdir	SNMP
 %define	pnam	Info
 Summary:	SNMP::Info - Perl interface to network devices and MIBs through SNMP
-Summary(pl):	SNMP::Info - perlowy interfejs do urz±dzeñ sieciowych i MIB-ów poprzez SNMP
+Summary(pl):	SNMP::Info - interfejs perlowy do urz±dzeñ sieciowych i MIB-ów poprzez SNMP
 Name:		perl-SNMP-Info
 Version:	0.8
 Release:	1
