@@ -8,12 +8,12 @@
 Summary:	SNMP::Info - Perl interface to network devices and MIBs through SNMP
 Summary(pl):	SNMP::Info - interfejs perlowy do urz±dzeñ sieciowych i MIB-ów poprzez SNMP
 Name:		perl-SNMP-Info
-Version:	0.9
+Version:	1.04
 Release:	1
 License:	BSD
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	fb54f3a598a49cc190f64f2a25d1215d
+# Source0-md5:	2cf580f142b7300fc12336b83c85f5eb
 URL:		http://snmp-info.sourceforge.net/
 %if %{with tests}
 BuildRequires:	perl-SNMP >= 4
