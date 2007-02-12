@@ -6,7 +6,7 @@
 %define		pdir	SNMP
 %define		pnam	Info
 Summary:	SNMP::Info - Perl interface to network devices and MIBs through SNMP
-Summary(pl):	SNMP::Info - interfejs perlowy do urz±dzeñ sieciowych i MIB-ów poprzez SNMP
+Summary(pl.UTF-8):   SNMP::Info - interfejs perlowy do urzÄ…dzeÅ„ sieciowych i MIB-Ã³w poprzez SNMP
 Name:		perl-SNMP-Info
 Version:	1.04
 Release:	1
@@ -31,13 +31,13 @@ idea behind this module is to give a common interface to data from
 network devices, leaving the device-specific hacks behind the scenes
 in subclasses.
 
-%description -l pl
-SNMP::Info udostêpnia zorientowany obiektowo interfejs do informacji
-uzyskiwanych poprzez SNMP. Modu³ jest dostosowany do urz±dzeñ
-sieciowych. Istniej± podklasy dla wielu urz±dzeñ sieciowych i
-popularnych MIB-ów. Ide± tego modu³u jest dostarczenie wspólnego
-interfejsu do danych z urz±dzeñ sieciowych pozostawiaj±c specyficzne
-dla konkretnych urz±dzeñ sztuczki ukryte w podklasach.
+%description -l pl.UTF-8
+SNMP::Info udostÄ™pnia zorientowany obiektowo interfejs do informacji
+uzyskiwanych poprzez SNMP. ModuÅ‚ jest dostosowany do urzÄ…dzeÅ„
+sieciowych. IstniejÄ… podklasy dla wielu urzÄ…dzeÅ„ sieciowych i
+popularnych MIB-Ã³w. IdeÄ… tego moduÅ‚u jest dostarczenie wspÃ³lnego
+interfejsu do danych z urzÄ…dzeÅ„ sieciowych pozostawiajÄ…c specyficzne
+dla konkretnych urzÄ…dzeÅ„ sztuczki ukryte w podklasach.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
